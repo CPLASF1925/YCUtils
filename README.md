@@ -31,6 +31,7 @@
 - v1.0.0 抽取开发中部分代码，封装成库
 - v1.1 v1.2 
 - v1.3 封装了加载Loading控件，自定义back返回时处理的抽象方法。
+
 **4.2本人写的综合案例**
 [案例](https://github.com/yangchong211/LifeHelper)
 [说明及截图](https://github.com/yangchong211/LifeHelper/blob/master/README.md)
