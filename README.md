@@ -33,11 +33,13 @@
 - v1.3 封装了加载Loading控件，自定义back返回时处理的抽象方法。
 
 **4.2本人写的综合案例**
-[案例](https://github.com/yangchong211/LifeHelper)
-[说明及截图](https://github.com/yangchong211/LifeHelper/blob/master/README.md)
-模块：新闻，音乐，视频，图片，唐诗宋词，快递，天气，记事本，阅读器等等
-接口：七牛，阿里云，天行，干货集中营，极速数据，追书神器等等
+- [案例](https://github.com/yangchong211/LifeHelper)
+- [说明及截图](https://github.com/yangchong211/LifeHelper/blob/master/README.md)
+- 模块：新闻，音乐，视频，图片，唐诗宋词，快递，天气，记事本，阅读器等等
+- 接口：七牛，阿里云，天行，干货集中营，极速数据，追书神器等等
+- [持续更新目录说明](http://www.jianshu.com/p/53017c3fc75d)
 
+**4.3其他**
 - 知乎：https://www.zhihu.com/people/yang-chong-69-24/pins/posts
 - 领英：https://www.linkedin.com/in/chong-yang-049216146/
 - 简书：http://www.jianshu.com/u/b7b2c6ed9284
