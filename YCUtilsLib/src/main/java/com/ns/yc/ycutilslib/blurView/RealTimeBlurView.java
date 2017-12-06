@@ -317,10 +317,6 @@ public class RealTimeBlurView extends View {
 
 	/**
 	 * Custom draw the blurred bitmap and color to define your own shape
-	 *
-	 * @param canvas
-	 * @param blurredBitmap
-	 * @param overlayColor
 	 */
 	protected void drawBlurredBitmap(Canvas canvas, Bitmap blurredBitmap, int overlayColor) {
 		if (blurredBitmap != null) {
@@ -333,8 +329,7 @@ public class RealTimeBlurView extends View {
 		canvas.drawColor(overlayColor);
 	}
 
-	private static class StopException extends RuntimeException {
-	}
+	private static class StopException extends RuntimeException {}
 
 	private static StopException STOP_EXCEPTION = new StopException();
 

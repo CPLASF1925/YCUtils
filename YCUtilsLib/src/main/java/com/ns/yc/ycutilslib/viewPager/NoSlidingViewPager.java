@@ -22,10 +22,12 @@ public class NoSlidingViewPager extends ViewPager {
     }
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        //去掉ViewPager默认的滑动效果， 不消费事件
         return false;
     }
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        //不让拦截事件
         return false;
     }
 

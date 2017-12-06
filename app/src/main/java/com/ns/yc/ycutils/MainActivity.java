@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+
     private void init() {
         initFindViewById();
         initFragmentList();
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         vp_content = (NoSlidingViewPager)findViewById(R.id.vp_content);
     }
 
+
     private void initFragmentList() {
         mTitleList.clear();
         mFragments.clear();
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(new KnowledgeAndroidFragment());
         mFragments.add(new KnowledgeOtherFragment());
     }
+
 
     private void initViewPagerAndTab() {
         /**

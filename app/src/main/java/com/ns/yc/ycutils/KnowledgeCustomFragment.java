@@ -1,16 +1,22 @@
 package com.ns.yc.ycutils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ns.yc.ycutilslib.blurView.RealTimeBlurView;
+import com.ns.yc.ycutilslib.blurView.blur.BlurBehind;
 import com.ns.yc.ycutilslib.loadingDialog.ViewLoading;
+import com.ns.yc.ycutilslib.rippleLayout.MaterialRippleLayout;
+import com.ns.yc.ycutilslib.switchButton.SwitchButton;
 
 /**
  * ================================================
@@ -27,6 +33,11 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
     private TextView tv1;
     private ViewLoading mLoading;
     private TextView tv2;
+    private SwitchButton sb_btn;
+    private LinearLayout ll;
+    private TextView tv3;
+    private TextView tv4;
+    private TextView tv5;
 
     @Override
     public void onAttach(Context context) {
@@ -50,12 +61,38 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
     public void initView() {
         tv1 = (TextView) activity.findViewById(R.id.tv_1);
         tv2 = (TextView) activity.findViewById(R.id.tv_2);
+        tv3 = (TextView) activity.findViewById(R.id.tv_3);
+        tv4 = (TextView) activity.findViewById(R.id.tv_4);
+        tv5 = (TextView) activity.findViewById(R.id.tv_5);
+        ll = (LinearLayout) activity.findViewById(R.id.ll);
+        sb_btn = (SwitchButton) activity.findViewById(R.id.sb_btn);
+        initRipper();
+    }
+
+    private void initRipper() {
+        MaterialRippleLayout.on(tv4)
+                .rippleColor(Color.parseColor("#999999"))
+                .rippleAlpha(0.2f)
+                .rippleHover(true)
+                .create();
+        MaterialRippleLayout.on(ll)
+                .rippleColor(Color.parseColor("#999999"))
+                .rippleAlpha(0.2f)
+                .rippleHover(true)
+                .create();
     }
 
     @Override
     public void initListener() {
         tv1.setOnClickListener(this);
         tv2.setOnClickListener(this);
+        sb_btn.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+
+            }
+        });
+        tv5.setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +108,16 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
                 break;
             case R.id.tv_2:
                 startShowDialog();
+                break;
+            case R.id.tv_5:
+                BlurBehind.getInstance().execute(activity, new BlurBehind.OnBlurListener() {
+                    @Override
+                    public void onBlurComplete() {
+                        Intent intent = new Intent(activity, BlurredActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                    }
+                });
                 break;
         }
     }
