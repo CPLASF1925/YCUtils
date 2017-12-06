@@ -7,7 +7,7 @@
 - 4.其他介绍
 
 ## 1.使用说明
-直接在项目build文件中添加库即可：compile 'cn.yc:YCUtilsLib:1.0'
+直接在项目build文件中添加库即可：compile 'cn.yc:YCUtilsLib:1.4'
 
 ## 2.功能说明
 - 2.1 模糊视图
@@ -15,6 +15,8 @@
 - 2.3 全局Loading加载窗
 - 2.4 InputMethodManager内存泄露现象及解决
 - 2.5 ViewPager拦截左右滑动监听
+- 2.6 各种常用自定义ScrollView，比如具有弹性的ScrollView，屏蔽滑动事件ScrollView
+- 2.7 自定义Switch控件
 - 具体的使用方法可以参考Demo，已经详细介绍使用
 
 ## 3.图片展示
@@ -25,7 +27,11 @@
 - ![image](https://github.com/yangchong211/YCUtils/blob/master/image/Screenshot_2.png)
 
 ## 4.其他介绍
-**4.1本人写的综合案例**
+**4.1版本更新说明**
+- v1.0.0 抽取开发中部分代码，封装成库
+- v1.1 v1.2 
+- v1.3 封装了加载Loading控件，自定义back返回时处理的抽象方法。
+**4.2本人写的综合案例**
 [案例](https://github.com/yangchong211/LifeHelper)
 [说明及截图](https://github.com/yangchong211/LifeHelper/blob/master/README.md)
 模块：新闻，音乐，视频，图片，唐诗宋词，快递，天气，记事本，阅读器等等
