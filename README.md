@@ -7,7 +7,7 @@
 - 4.其他介绍
 
 ## 1.使用说明
-直接在项目build文件中添加库即可：compile 'cn.yc:YCUtilsLib:1.4'
+直接在项目build文件中添加库即可：compile 'cn.yc:YCUtilsLib:1.5'
 
 ## 2.功能说明
 - 2.1 模糊视图
@@ -17,6 +17,7 @@
 - 2.5 ViewPager拦截左右滑动监听
 - 2.6 各种常用自定义ScrollView，比如具有弹性的ScrollView，屏蔽滑动事件ScrollView
 - 2.7 自定义Switch控件
+- 2.8 自定义webview，支持滑动监听，并且优雅处理302重定向和处理回退栈问题
 - 具体的使用方法可以参考Demo，已经详细介绍使用
 
 ## 3.图片展示
@@ -32,6 +33,7 @@
 - v1.1 v1.2 
 - v1.3 更新于2017年11月18日 ，封装了加载Loading控件，自定义back返回时处理的抽象方法。
 - v1.4 更新于2017年12月5日，借鉴Blurry写了自定义模糊视图控件
+- v1.5 更新于2017年12月20日，添加了自定义WebView控件，支持滑动监听和优雅处理回退栈和302重定向问题
 
 **4.2本人写的综合案例**
 - [案例](https://github.com/yangchong211/LifeHelper)
