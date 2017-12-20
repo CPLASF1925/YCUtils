@@ -7,7 +7,7 @@
 - 4.其他介绍
 
 ## 1.使用说明
-直接在项目build文件中添加库即可：compile 'cn.yc:YCUtilsLib:1.0'
+直接在项目build文件中添加库即可：compile 'cn.yc:YCUtilsLib:1.5'
 
 ## 2.功能说明
 - 2.1 模糊视图
@@ -15,6 +15,9 @@
 - 2.3 全局Loading加载窗
 - 2.4 InputMethodManager内存泄露现象及解决
 - 2.5 ViewPager拦截左右滑动监听
+- 2.6 各种常用自定义ScrollView，比如具有弹性的ScrollView，屏蔽滑动事件ScrollView
+- 2.7 自定义Switch控件
+- 2.8 自定义webview，支持滑动监听，并且优雅处理302重定向和处理回退栈问题
 - 具体的使用方法可以参考Demo，已经详细介绍使用
 
 ## 3.图片展示
@@ -25,12 +28,21 @@
 - ![image](https://github.com/yangchong211/YCUtils/blob/master/image/Screenshot_2.png)
 
 ## 4.其他介绍
-**4.1本人写的综合案例**
-[案例](https://github.com/yangchong211/LifeHelper)
-[说明及截图](https://github.com/yangchong211/LifeHelper/blob/master/README.md)
-模块：新闻，音乐，视频，图片，唐诗宋词，快递，天气，记事本，阅读器等等
-接口：七牛，阿里云，天行，干货集中营，极速数据，追书神器等等
+**4.1版本更新说明**
+- v1.0.0 抽取开发中部分代码，封装成库
+- v1.1 v1.2 
+- v1.3 更新于2017年11月18日 ，封装了加载Loading控件，自定义back返回时处理的抽象方法。
+- v1.4 更新于2017年12月5日，借鉴Blurry写了自定义模糊视图控件
+- v1.5 更新于2017年12月20日，添加了自定义WebView控件，支持滑动监听和优雅处理回退栈和302重定向问题
 
+**4.2本人写的综合案例**
+- [案例](https://github.com/yangchong211/LifeHelper)
+- [说明及截图](https://github.com/yangchong211/LifeHelper/blob/master/README.md)
+- 模块：新闻，音乐，视频，图片，唐诗宋词，快递，天气，记事本，阅读器等等
+- 接口：七牛，阿里云，天行，干货集中营，极速数据，追书神器等等
+- [持续更新目录说明](http://www.jianshu.com/p/53017c3fc75d)
+
+**4.3其他**
 - 知乎：https://www.zhihu.com/people/yang-chong-69-24/pins/posts
 - 领英：https://www.linkedin.com/in/chong-yang-049216146/
 - 简书：http://www.jianshu.com/u/b7b2c6ed9284
