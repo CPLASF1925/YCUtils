@@ -76,6 +76,6 @@ public abstract class ViewLoading extends Dialog {
      * 抽象方法，子类继承实现
      * 处理消失后的逻辑
      */
-    public abstract void loadCancel();
+    abstract void loadCancel();
 
 }
