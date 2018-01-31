@@ -115,7 +115,9 @@ public class ScrollWebView extends WebView {
     }
 
 
-    // 加载url时重置touch状态
+    /**
+     * 加载url时重置touch状态
+     */
     protected void resetAllState() {
         mTouchByUser = false;
     }
@@ -127,6 +129,8 @@ public class ScrollWebView extends WebView {
             case MotionEvent.ACTION_DOWN:
                 //用户按下到下一个链接加载之前，置为true
                 mTouchByUser = true;
+                break;
+            default:
                 break;
         }
         return super.onTouchEvent(event);

@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.ns.yc.ycutilslib.fragmentBack.BackHandlerHelper;
+import com.ns.yc.ycutilslib.loadingDialog.stateLoad.CustomLoadingDialog;
+import com.ns.yc.ycutilslib.loadingDialog.stateLoad.CustomStyleManager;
 import com.ns.yc.ycutilslib.managerLeak.InputMethodManagerLeakUtils;
 import com.ns.yc.ycutilslib.viewPager.NoSlidingViewPager;
 

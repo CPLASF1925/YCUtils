@@ -34,9 +34,18 @@ import com.ns.yc.ycutilslib.R;
  */
 public class RealTimeBlurView extends View {
 
-	private float mDownsampleFactor;        // default 4
-	private int mOverlayColor;              // default #aaffffff
-	private float mBlurRadius;              // default 10dp (0 < r <= 25)
+	/**
+	 * 默认4
+	 */
+	private float mDownsampleFactor;
+	/**
+	 * 默认 #aaffffff
+	 */
+	private int mOverlayColor;
+	/**
+	 * 默认 10dp (0 < r <= 25)
+	 */
+	private float mBlurRadius;
 
 	private boolean mDirty;
 	private Bitmap mBitmapToBlur, mBlurredBitmap;
@@ -52,14 +61,15 @@ public class RealTimeBlurView extends View {
 
 	public RealTimeBlurView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RealTimeBlurView);
 		mBlurRadius = a.getDimension(R.styleable.RealTimeBlurView_realtimeBlurRadius,
-				TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()));
+				TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+						10, context.getResources().getDisplayMetrics()));
 		mDownsampleFactor = a.getFloat(R.styleable.RealTimeBlurView_realtimeDownsampleFactor, 4);
 		mOverlayColor = a.getColor(R.styleable.RealTimeBlurView_realtimeOverlayColor, 0xAAFFFFFF);
 		a.recycle();
 	}
+
 
 	public void setBlurRadius(float radius) {
 		if (mBlurRadius != radius) {
@@ -69,18 +79,20 @@ public class RealTimeBlurView extends View {
 		}
 	}
 
+
 	public void setDownsampleFactor(float factor) {
 		if (factor <= 0) {
 			throw new IllegalArgumentException("Downsample factor must be greater than 0.");
 		}
-
 		if (mDownsampleFactor != factor) {
 			mDownsampleFactor = factor;
-			mDirty = true; // may also change blur radius
+			// may also change blur radius
+			mDirty = true;
 			releaseBitmap();
 			invalidate();
 		}
 	}
+
 
 	public void setOverlayColor(int color) {
 		if (mOverlayColor != color) {
@@ -88,6 +100,7 @@ public class RealTimeBlurView extends View {
 			invalidate();
 		}
 	}
+
 
 	private void releaseBitmap() {
 		if (mBlurInput != null) {
@@ -107,6 +120,7 @@ public class RealTimeBlurView extends View {
 			mBlurredBitmap = null;
 		}
 	}
+
 
 	private void releaseScript() {
 		if (mRenderScript != null) {

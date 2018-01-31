@@ -1,5 +1,6 @@
 package com.ns.yc.ycutilslib.blurView.blur;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
@@ -75,6 +76,7 @@ public class BlurBehind {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class CacheBlurExecuteTask extends AsyncTask<Void, Void, Void> {
         
         private Activity activity;

@@ -48,4 +48,19 @@
         <attr name="mrl_rippleRoundedCorners" format="dimension" localization="suggested" />
     </declare-styleable>
 
+    <!--多功能加载窗-->
+    <attr name="strokeColor" format="color" />
+    <attr name="speed">
+        <enum name="speedOne" value="1" />
+        <enum name="speedTwo" value="2" />
+    </attr>
+    <declare-styleable name="CustomRightView">
+        <attr name="strokeColor" />
+        <attr name="speed" />
+    </declare-styleable>
+    <declare-styleable name="CustomWrongView">
+        <attr name="strokeColor" />
+        <attr name="speed" />
+    </declare-styleable>
+
 </resources>

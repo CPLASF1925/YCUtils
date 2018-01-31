@@ -504,9 +504,7 @@ public class SwitchButton extends View implements Checkable {
         valueAnimator.start();
     }
 
-    /**
-     *
-     */
+
     private void broadcastEvent() {
         if(onCheckedChangeListener != null){
             isEventBroadcast = true;
@@ -599,6 +597,8 @@ public class SwitchButton extends View implements Checkable {
                 }
                 break;
             }
+            default:
+                break;
         }
         return true;
     }
@@ -755,30 +755,22 @@ public class SwitchButton extends View implements Checkable {
     }
 
 
-    private static float optPixelSize(TypedArray typedArray,
-                               int index,
-                               float def) {
+    private static float optPixelSize(TypedArray typedArray, int index, float def) {
         if(typedArray == null){return def;}
         return typedArray.getDimension(index, def);
     }
 
-    private static int optPixelSize(TypedArray typedArray,
-                             int index,
-                             int def) {
+    private static int optPixelSize(TypedArray typedArray, int index, int def) {
         if(typedArray == null){return def;}
         return typedArray.getDimensionPixelOffset(index, def);
     }
 
-    private static int optColor(TypedArray typedArray,
-                         int index,
-                         int def) {
+    private static int optColor(TypedArray typedArray, int index, int def) {
         if(typedArray == null){return def;}
         return typedArray.getColor(index, def);
     }
 
-    private static boolean optBoolean(TypedArray typedArray,
-                                      int index,
-                                      boolean def) {
+    private static boolean optBoolean(TypedArray typedArray, int index, boolean def) {
         if(typedArray == null){return def;}
         return typedArray.getBoolean(index, def);
     }

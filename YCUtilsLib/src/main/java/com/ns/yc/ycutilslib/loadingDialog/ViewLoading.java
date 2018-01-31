@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ns.yc.ycutilslib.R;
 
@@ -23,19 +24,34 @@ import com.ns.yc.ycutilslib.R;
  */
 public abstract class ViewLoading extends Dialog {
 
-    public abstract void loadCancel();
 
-    public ViewLoading(Context context , int styleId) {
-        super(context, styleId);
-        // 加载布局
-        setContentView(R.layout.dialog_toast_view);
+    public ViewLoading(Context context ,int type , String content) {
+        super(context, R.style.Loading);
+        if(type == 1){
+            // 加载布局
+            setContentView(R.layout.layout_dialog_loading);
+            TextView message = (TextView) findViewById(R.id.message);
+            if(content!=null && content.length()>0){
+                message.setText(content);
+            }else {
+                message.setText("加载中");
+            }
+        }else {
+            // 加载布局
+            setContentView(R.layout.layout_dialog_loaded);
+        }
         ImageView progressImageView = (ImageView) findViewById(R.id.iv_image);
         //创建旋转动画
-        Animation animation =new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        Animation animation =new RotateAnimation(0f, 360f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(2000);
-        animation.setRepeatCount(10);//动画的重复次数
-        animation.setFillAfter(true);//设置为true，动画转化结束后被应用
-        progressImageView.startAnimation(animation);//开始动画
+        //动画的重复次数
+        animation.setRepeatCount(10);
+        //设置为true，动画转化结束后被应用
+        animation.setFillAfter(true);
+        //开始动画
+        progressImageView.startAnimation(animation);
         // 设置Dialog参数
         Window window = getWindow();
         if(window!=null){
@@ -45,7 +61,9 @@ public abstract class ViewLoading extends Dialog {
         }
     }
 
-    // 封装Dialog消失的回调
+    /**
+     * 封装Dialog消失的回调
+     */
     @Override
     public void onBackPressed() {
         //回调
@@ -53,5 +71,11 @@ public abstract class ViewLoading extends Dialog {
         //关闭Loading
         dismiss();
     }
+
+    /**
+     * 抽象方法，子类继承实现
+     * 处理消失后的逻辑
+     */
+    public abstract void loadCancel();
 
 }

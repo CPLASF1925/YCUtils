@@ -3,6 +3,7 @@ package com.ns.yc.ycutils;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -14,7 +15,9 @@ import android.widget.TextView;
 
 import com.ns.yc.ycutilslib.blurView.RealTimeBlurView;
 import com.ns.yc.ycutilslib.blurView.blur.BlurBehind;
+import com.ns.yc.ycutilslib.loadingDialog.LoadDialog;
 import com.ns.yc.ycutilslib.loadingDialog.ViewLoading;
+import com.ns.yc.ycutilslib.loadingDialog.stateLoad.CustomLoadingDialog;
 import com.ns.yc.ycutilslib.rippleLayout.MaterialRippleLayout;
 import com.ns.yc.ycutilslib.switchButton.SwitchButton;
 
@@ -38,6 +41,10 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
     private TextView tv3;
     private TextView tv4;
     private TextView tv5;
+    private TextView tv6;
+    private TextView tv7;
+    private TextView tv8;
+    private TextView tv9;
 
     @Override
     public void onAttach(Context context) {
@@ -64,6 +71,10 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
         tv3 = (TextView) activity.findViewById(R.id.tv_3);
         tv4 = (TextView) activity.findViewById(R.id.tv_4);
         tv5 = (TextView) activity.findViewById(R.id.tv_5);
+        tv6 = (TextView) activity.findViewById(R.id.tv_6);
+        tv7 = (TextView) activity.findViewById(R.id.tv_7);
+        tv8 = (TextView) activity.findViewById(R.id.tv_8);
+        tv9 = (TextView) activity.findViewById(R.id.tv_9);
         ll = (LinearLayout) activity.findViewById(R.id.ll);
         sb_btn = (SwitchButton) activity.findViewById(R.id.sb_btn);
         initRipper();
@@ -93,12 +104,19 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
             }
         });
         tv5.setOnClickListener(this);
+        tv6.setOnClickListener(this);
+        tv7.setOnClickListener(this);
+        tv8.setOnClickListener(this);
+        tv9.setOnClickListener(this);
     }
 
     @Override
     public void initData() {
 
     }
+
+    private boolean intercept_back_event = false;
+
 
     @Override
     public void onClick(View v) {
@@ -119,12 +137,90 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
                     }
                 });
                 break;
+            case R.id.tv_6:
+                LoadDialog.show(activity,"加载中",false,false);
+                new CountDownTimer(3000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        LoadDialog.dismiss(activity);
+                    }
+                }.start();
+                break;
+            case R.id.tv_7:
+                final CustomLoadingDialog ld7 = new CustomLoadingDialog(activity);
+                ld7.setInterceptBack(intercept_back_event).setLoadingText("加载中...");
+                ld7.show();
+                new CountDownTimer(3000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        ld7.close();
+                    }
+                }.start();
+                break;
+            case R.id.tv_8:
+                final CustomLoadingDialog ld8 = new CustomLoadingDialog(activity);
+                CustomLoadingDialog.Speed speed = CustomLoadingDialog.Speed.SPEED_TWO;
+                ld8.setLoadingText("加载中")
+                        .setSuccessText("加载成功")
+                        .setInterceptBack(intercept_back_event)
+                        .setLoadSpeed(speed)
+                        .setRepeatCount(2000)
+                        .setDrawColor(getResources().getColor(R.color.colorAccent))
+                        .show();
+                new CountDownTimer(3000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        ld8.loadSuccess();
+                    }
+                }.start();
+                break;
+            case R.id.tv_9:
+                final CustomLoadingDialog ld9 = new CustomLoadingDialog(activity);
+                CustomLoadingDialog.Speed speed9 = CustomLoadingDialog.Speed.SPEED_TWO;
+                ld9.setLoadingText("加载中")
+                        .setFailedText("加载失败")
+                        .setInterceptBack(intercept_back_event)
+                        .setLoadSpeed(speed9)
+                        .setRepeatCount(2000)
+                        .setDrawColor(getResources().getColor(R.color.colorAccent))
+                        //延时5秒自动关闭，默认1秒
+                        .setShowTime(5000)
+                        .show();
+                new CountDownTimer(3000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        ld9.loadFailed();
+                    }
+                }.start();
+                break;
+            default:
+                break;
         }
     }
 
     private void startShowLoading() {
         // 添加Loading
-        mLoading = new ViewLoading(activity , R.style.Loading) {
+        mLoading = new ViewLoading(activity ,2,"更新中") {
             @Override
             public void loadCancel() {
 
