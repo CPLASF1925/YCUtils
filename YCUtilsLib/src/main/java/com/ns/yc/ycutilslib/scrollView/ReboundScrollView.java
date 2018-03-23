@@ -55,8 +55,9 @@ public class ReboundScrollView extends ScrollView {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
-        if (contentView == null)
+        if (contentView == null) {
             return;
+        }
 
         // ScrollView中的唯一子控件的位置信息, 这个位置信息在整个控件的生命周期中保持不变
         originalRect.set(contentView.getLeft(), contentView.getTop(), contentView.getRight(), contentView.getBottom());
@@ -83,8 +84,9 @@ public class ReboundScrollView extends ScrollView {
                 startY = ev.getY();
                 break;
             case MotionEvent.ACTION_UP:
-                if (!isMoved)
+                if (!isMoved) {
                     break; // 如果没有移动布局， 则跳过执行
+                }
                 // 开启动画
                 TranslateAnimation anim = new TranslateAnimation(0, 0, contentView.getTop(), originalRect.top);
                 anim.setDuration(ANIM_TIME);

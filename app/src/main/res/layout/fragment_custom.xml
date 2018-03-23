@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ns.yc.ycutilslib.scrollView.ReboundScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -104,7 +105,17 @@
             android:text="9.页面Loading加载窗，加载失败"/>
 
 
+        <TextView
+            android:id="@+id/tv_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="10.锁屏页面的左右滑动的自定义布局"/>
+
+
+
     </LinearLayout>
 
-</ScrollView>
+</com.ns.yc.ycutilslib.scrollView.ReboundScrollView>
 

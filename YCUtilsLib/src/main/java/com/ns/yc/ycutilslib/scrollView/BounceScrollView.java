@@ -1,5 +1,6 @@
 package com.ns.yc.ycutilslib.scrollView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -35,6 +36,7 @@ public class BounceScrollView extends ScrollView {
      * 根据 XML 生成视图工作完成.该函数在生成视图的最后调用，在所有子视图添加完之后. 即使子类覆盖了 onFinishInflate
      * 方法，也应该调用父类的方法，使该方法得以执行.
      */
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onFinishInflate() {
         if (getChildCount() > 0) {

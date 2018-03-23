@@ -45,6 +45,7 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
     private TextView tv7;
     private TextView tv8;
     private TextView tv9;
+    private TextView tv10;
 
     @Override
     public void onAttach(Context context) {
@@ -75,6 +76,7 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
         tv7 = (TextView) activity.findViewById(R.id.tv_7);
         tv8 = (TextView) activity.findViewById(R.id.tv_8);
         tv9 = (TextView) activity.findViewById(R.id.tv_9);
+        tv10 = (TextView) activity.findViewById(R.id.tv_10);
         ll = (LinearLayout) activity.findViewById(R.id.ll);
         sb_btn = (SwitchButton) activity.findViewById(R.id.sb_btn);
         initRipper();
@@ -108,6 +110,7 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
         tv7.setOnClickListener(this);
         tv8.setOnClickListener(this);
         tv9.setOnClickListener(this);
+        tv10.setOnClickListener(this);
     }
 
     @Override
@@ -212,6 +215,11 @@ public class KnowledgeCustomFragment extends BaseFragment implements View.OnClic
                         ld9.loadFailed();
                     }
                 }.start();
+                break;
+            case R.id.tv_10:
+                Intent lockScreen = new Intent(activity, APPLockActivity.class);
+                lockScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(lockScreen);
                 break;
             default:
                 break;
